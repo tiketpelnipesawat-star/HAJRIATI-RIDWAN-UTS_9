@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <nav>
+        <a href="/">home</a> <a href="/login">login</a>
+    </nav>
+    <h1>Home</h1>
+    <p>current user False</p>
+
+    <h3>Buat akun</h3>
+    <form action="/tambah" method="POST">
+        <input type="text" name="username" placeholder="username" required>
+        <input type="password" name="password" placeholder="password">
+        <select name="role">
+            <option value="Dosen">Dosen</option>
+            <option value="Mahasiswa" selected>Mahasiswa</option>
+            <option value="Admin">Admin</option>
+        </select>
+        <button type="submit">Buat</button>
+    </form>
+
+    <ul style="list-style: none; padding: 0; margin-top: 20px;">
+        {% for user in users %}
+        <li>
+            {{ loop.index }} {{ user.username }} {{ user.role }} 
+            <a href="{{ url_for('hapus_user', index=loop.index) }}">hapus</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
