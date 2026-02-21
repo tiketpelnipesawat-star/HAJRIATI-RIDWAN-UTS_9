@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kotak Melayang di Bawah</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            height: 120vh; /* Agar bisa scroll */
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-top: 2px solid #ddd;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff; /* Ubah agar tidak putih polos (fefcfb hampir putih) */
+            border: 1px solid #eee;
+        }
+
+        /* Styling untuk link agar terlihat seperti tombol */
+        .box a {
+            text-decoration: none;
+            color: hsl(211, 87%, 6%);
+            font-weight: bold;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .box {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="konten-isi">
+        <h2 style="color: #333; text-align: center; margin-top: 50px;"></h2>
+    </div>
+
+    <div class="container">
+        <div class="box">
+            <a href="{{ url_for('halaman2') }}"></a>
+        </div>
+        
+        <div class="box" style="color: #f0eeee;"></div>
+        
+        <div class="box">
+            <a href="{{ url_for('halaman4') }}">Berikutnya →</a>
+        </div>
+    </div>
+
+</body>
+</html>

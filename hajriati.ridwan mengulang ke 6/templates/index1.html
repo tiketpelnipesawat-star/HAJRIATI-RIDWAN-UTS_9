@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kotak Responsif Diagonal & Warna</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding-top: 50px;
+        }
+
+        .box {
+            width: 180px;
+            height: 180px;
+            background-color: #ffffff; /* Warna putih agar link terlihat */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Styling agar link memenuhi kotak dan teks di tengah */
+        .box a {
+            text-decoration: none;
+            color: hsl(210, 100%, 1%);
+            font-weight: bold;
+            font-size: 1.2rem;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: stretch;
+                max-width: 400px;
+                margin: 0 auto;
+                gap: 15px;
+            }
+
+            .box {
+                width: 140px;
+                height: 140px;
+            }
+
+            .box:nth-child(1) { align-self: flex-start; background-color: #fcfbfb; }
+            .box:nth-child(2) { align-self: center; background-color: #f5f5f3; }
+            .box:nth-child(3) { align-self: flex-end; background-color: #f6faf8; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box">
+            <span></span>
+        </div>
+
+        <div class="box">
+           <span></span>
+        </div>
+
+        <div class="box">
+             <a href="{{ url_for('halaman2') }}">Halaman Berikutnya</a>
+        </div>
+    </div>
+
+</body>
+</html>
